@@ -4,7 +4,11 @@ ChatBox is chat application build with the power of MERN Stack.
 
 <!-- You can find the tutorial [here](https://www.youtube.com/watch?v=otaQKODEUFs) -->
 
+#### Login Page
+
 ![login page](./images/ChatBox_login.png)
+
+#### Registration Page
 
 ![Registration Page](./images/ChatBox_Registration.png)
 
