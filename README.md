@@ -12,6 +12,10 @@ ChatBox is chat application build with the power of MERN Stack.
 
 ![Registration Page](./images/ChatBox_Registration.png)
 
+#### Choose Avatar
+
+![Choose Avatar](./images/ChatBox_SetAvatar.png)
+
 #### User Dashboard
 
 ![User Dashboard](./images/ChatBox_UserDashboard.png)
