@@ -28,7 +28,7 @@ export default function Login() {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
 
-  // Old Code
+  // Version 1.0
   // const validateForm = () => {
   //   const { username, password } = values;
   //   if (username === "") {
@@ -41,6 +41,7 @@ export default function Login() {
   //   return true;
   // };
 
+  // Version 2.0
   const validateForm = () => {
     const { username, password } = values;
 
@@ -54,28 +55,63 @@ export default function Login() {
       toast.error("Password is required.", toastOptions);
       return false;
     }
-
     return true;
   };
 
+  // Version 1.0
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   if (validateForm()) {
+  //     const { username, password } = values;
+  //     const { data } = await axios.post(loginRoute, {
+  //       username,
+  //       password,
+  //     });
+  //     if (data.status === false) {
+  //       toast.error(data.msg, toastOptions);
+  //     }
+  //     if (data.status === true) {
+  //       localStorage.setItem(
+  //         process.env.REACT_APP_LOCALHOST_KEY,
+  //         JSON.stringify(data.user)
+  //       );
+
+  //       navigate("/");
+  //     }
+  //   }
+  // };
+
+  // Version 2.0
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (validateForm()) {
       const { username, password } = values;
-      const { data } = await axios.post(loginRoute, {
-        username,
-        password,
-      });
-      if (data.status === false) {
-        toast.error(data.msg, toastOptions);
-      }
-      if (data.status === true) {
-        localStorage.setItem(
-          process.env.REACT_APP_LOCALHOST_KEY,
-          JSON.stringify(data.user)
-        );
+      try {
+        const { data } = await axios.post(loginRoute, {
+          username,
+          password,
+        });
 
-        navigate("/");
+        if (data.status === false) {
+          toast.error(data.msg, toastOptions);
+        } else if (data.status === true) {
+          localStorage.setItem(
+            process.env.REACT_APP_LOCALHOST_KEY,
+            JSON.stringify(data.user)
+          );
+
+          // Show success toast
+          toast.success("Login successfully!", toastOptions);
+
+          // Wait for the toast to appear before navigating
+          setTimeout(() => {
+            navigate("/");
+          }, 1000); // Adjust timeout as necessary
+        }
+      } catch (error) {
+        console.error("Error logging in:", error);
+        // Handle error, show error toast or log message
+        toast.error("Error logging in. Please try again later.", toastOptions);
       }
     }
   };

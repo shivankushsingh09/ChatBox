@@ -80,7 +80,14 @@ export default function Register() {
           process.env.REACT_APP_LOCALHOST_KEY,
           JSON.stringify(data.user)
         );
-        navigate("/");
+        // navigate("/");
+        // Show success toast
+        toast.success("Register successfully!", toastOptions);
+
+        // Wait for the toast to appear before navigating
+        setTimeout(() => {
+          navigate("/");
+        }, 1000); // Adjust timeout as necessary
       }
     }
   };
@@ -110,12 +117,16 @@ export default function Register() {
             type="password"
             placeholder="Password"
             name="password"
+            minLength={8}
+            maxLength={12}
             onChange={(e) => handleChange(e)}
           />
           <input
             type="password"
             placeholder="Confirm Password"
             name="confirmPassword"
+            minLength={8}
+            maxLength={12}
             onChange={(e) => handleChange(e)}
           />
           <button type="submit">Create User</button>
