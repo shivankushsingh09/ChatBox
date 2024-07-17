@@ -11,11 +11,13 @@ import { registerRoute } from "../utils/APIRoutes";
 export default function Register() {
   const navigate = useNavigate();
   const toastOptions = {
-    position: "bottom-right",
+    // position: "bottom-right",
+    position: "top-right",
     autoClose: 8000,
     pauseOnHover: true,
     draggable: true,
-    theme: "dark",
+    // theme: "dark",
+    theme: "light",
   };
   const [values, setValues] = useState({
     username: "",
@@ -58,7 +60,6 @@ export default function Register() {
       toast.error("Email is required.", toastOptions);
       return false;
     }
-
     return true;
   };
 
