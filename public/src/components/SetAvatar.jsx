@@ -14,11 +14,11 @@ export default function SetAvatar() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedAvatar, setSelectedAvatar] = useState(undefined);
   const toastOptions = {
-    position: "bottom-right",
+    position: "top-right",
     autoClose: 8000,
     pauseOnHover: true,
     draggable: true,
-    theme: "dark",
+    theme: "light",
   };
 
   useEffect(async () => {
@@ -45,7 +45,14 @@ export default function SetAvatar() {
           process.env.REACT_APP_LOCALHOST_KEY,
           JSON.stringify(user)
         );
-        navigate("/");
+
+        // Show success toast
+        toast.success("Avatar successfully chosen!", toastOptions);
+
+        // Navigate to home after a short delay
+        setTimeout(() => {
+          navigate("/");
+        }, 1000); // Adjust timeout as necessary
       } else {
         toast.error("Error setting avatar. Please try again.", toastOptions);
       }
@@ -64,6 +71,7 @@ export default function SetAvatar() {
     setAvatars(data);
     setIsLoading(false);
   }, []);
+
   return (
     <>
       {isLoading ? (
