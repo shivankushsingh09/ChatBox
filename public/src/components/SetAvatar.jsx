@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { Buffer } from "buffer";
-// import loader from "../assets/loader.gif";
 import loader from "../assets/loading.gif";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -110,7 +109,6 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 3rem;
-  // background-color: #131324;
   background-color: #F1F1F;
   height: 100vh;
   width: 100vw;
@@ -143,24 +141,19 @@ const Container = styled.div`
       }
     }
     .selected {
-      // border: 0.4rem solid #4e0eff;
       border: 0.4rem solid #012970;
     }
   }
   .submit-btn {
-    // background-color: #4e0eff;
     background-color: #4caf50;
     color: white;
     padding: 1rem 2rem;
     border: none;
-    // font-weight: bold;
     cursor: pointer;
-    // border-radius: 0.4rem;
     border-radius: 3px;
     font-size: 1rem;
     text-transform: uppercase;
     &:hover {
-      // background-color: #4e0eff;
       background-color: #45a049;
     }
   }

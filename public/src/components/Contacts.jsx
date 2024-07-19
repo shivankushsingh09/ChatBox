@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-// import Logo from "../assets/logo.svg";
 import Logo from "../assets/icon.png";
 
 export default function Contacts({ contacts, changeChat }) {
@@ -24,7 +23,6 @@ export default function Contacts({ contacts, changeChat }) {
         <Container>
           <div className="brand">
             <img src={Logo} alt="logo" />
-            {/* <h3>snappy</h3> */}
             <h3>Chat Box</h3>
           </div>
           <div className="contacts">
@@ -70,21 +68,18 @@ const Container = styled.div`
   display: grid;
   grid-template-rows: 10% 75% 15%;
   overflow: hidden;
-  // background-color: #080420;
   background-color: #fff;
   .brand {
     display: flex;
     align-items: center;
     gap: 1rem;
     justify-content: center;
-    // background-color: #f0f2f5;
     box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
     border-right: 1px solid rgba(0, 0, 0, 0.125);
     img {
       height: 2rem;
     }
     h3 {
-      // color: white;
       color: #0d0d30;
       text-transform: uppercase;
     }
@@ -99,23 +94,16 @@ const Container = styled.div`
     &::-webkit-scrollbar {
       width: 0.2rem;
       &-thumb {
-        // background-color: #ffffff39;
-        // background-color: rgb(240, 242, 245);
         background-color: #aab7cf;
         width: 0.1rem;
         border-radius: 1rem;
       }
     }
     .contact {
-      // background-color: #ffffff34;
-      // background-color: #f0f2f5;
-      // background-color: rgb(137, 155, 189);
       background-color: #f0f2f5;
-      // min-height: 5rem;
       min-height: 4.5rem;
       cursor: pointer;
       width: 90%;
-      // border-radius: 0.2rem;
       border-radius: 0.1rem;
       padding: 0.4rem;
       display: flex;
@@ -134,17 +122,12 @@ const Container = styled.div`
       }
     }
     .selected {
-      // background-color: #9a86f3;
-      // background-color: #fff;
-      // background-color: #efeae2;
       background-color: rgb(137, 155, 189);
       color: #fff;
     }
   }
 
   .current-user {
-    // background-color: #0d0d30;
-    // background-color: #f0f2f5;
     box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
     display: flex;
     justify-content: center;
@@ -159,7 +142,6 @@ const Container = styled.div`
     }
     .username {
       h2 {
-        // color: white;
       }
     }
     @media screen and (min-width: 720px) and (max-width: 1080px) {

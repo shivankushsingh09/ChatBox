@@ -121,7 +121,6 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
-    // background-color: #f0f2f5;
     box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
     .user-details {
       display: flex;
@@ -135,7 +134,6 @@ const Container = styled.div`
       }
       .username {
         h3 {
-          // color: white;
         }
       }
     }
@@ -160,12 +158,9 @@ const Container = styled.div`
       .content {
         max-width: 40%;
         overflow-wrap: break-word;
-        // padding: 1rem;
         padding: 0.5rem;
         font-size: 1.1rem;
-        // border-radius: 1rem;
         border-radius: 0.3rem;
-        // color: #d1d1d1;
         @media screen and (min-width: 720px) and (max-width: 1080px) {
           max-width: 70%;
         }
@@ -174,14 +169,12 @@ const Container = styled.div`
     .sended {
       justify-content: flex-end;
       .content {
-        // background-color: #4f04ff21;
         background-color: #d9fdd3;
       }
     }
     .recieved {
       justify-content: flex-start;
       .content {
-        // background-color: #9900ff20;
         background-color: #fff;
       }
     }

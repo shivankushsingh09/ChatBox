@@ -13,12 +13,10 @@ export default function Welcome() {
   }, []);
   return (
     <Container>
-      {/* <img src={Robot} alt="" /> */}
       <img src={Logo} alt="" />
       <h1>
         Welcome, <span>{userName}!</span>
       </h1>
-      {/* <h3>Please select a chat to Start messaging.</h3> */}
       <h3>Please select a person to Start messaging.</h3>
     </Container>
   );
@@ -28,18 +26,12 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  // color: white;
-  // color: #efeae2;
   flex-direction: column;
-  // background-color: #f0f2f5;
   background-color: #fff;
   img {
-    // height: 20rem;
-    // height: 12.5rem;
     height: 10rem;
   }
   span {
-    // color: #4e0eff;
     color: #32cd32;
   }
   h3 {

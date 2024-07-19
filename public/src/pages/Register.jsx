@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useNavigate, Link } from "react-router-dom";
-// import Logo from "../assets/logo.svg";
 import Logo from "../assets/icon.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,12 +10,10 @@ import { registerRoute } from "../utils/APIRoutes";
 export default function Register() {
   const navigate = useNavigate();
   const toastOptions = {
-    // position: "bottom-right",
     position: "top-right",
     autoClose: 8000,
     pauseOnHover: true,
     draggable: true,
-    // theme: "dark",
     theme: "light",
   };
   const [values, setValues] = useState({
@@ -63,38 +60,6 @@ export default function Register() {
     return true;
   };
 
-  // Version 1.0
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   if (handleValidation()) {
-  //     const { email, username, password } = values;
-  //     const { data } = await axios.post(registerRoute, {
-  //       username,
-  //       email,
-  //       password,
-  //     });
-
-  //     if (data.status === false) {
-  //       toast.error(data.msg, toastOptions);
-  //     }
-  //     if (data.status === true) {
-  //       localStorage.setItem(
-  //         process.env.REACT_APP_LOCALHOST_KEY,
-  //         JSON.stringify(data.user)
-  //       );
-  //       // navigate("/");
-  //       // Show success toast
-  //       toast.success("Register successfully!", toastOptions);
-
-  //       // Wait for the toast to appear before navigating
-  //       setTimeout(() => {
-  //         navigate("/");
-  //       }, 1000); // Adjust timeout as necessary
-  //     }
-  //   }
-  // };
-
-  // Version 2.0
   const handleSubmit = async (event) => {
     event.preventDefault();
     const { email, username, password, confirmPassword } = values;
@@ -120,7 +85,6 @@ export default function Register() {
           process.env.REACT_APP_LOCALHOST_KEY,
           JSON.stringify(data.user)
         );
-        // navigate("/");
         // Show success toast
         toast.success("Register successfully!", toastOptions);
 
@@ -138,7 +102,6 @@ export default function Register() {
         <form action="" onSubmit={(event) => handleSubmit(event)}>
           <div className="brand">
             <img src={Logo} alt="logo" />
-            {/* <h1>snappy</h1> */}
             <h1>Chat Box</h1>
           </div>
           <input
@@ -188,7 +151,6 @@ const FormContainer = styled.div`
   justify-content: center;
   gap: 1rem;
   align-items: center;
-  // background-color: #131324;
   .brand {
     display: flex;
     align-items: center;
@@ -209,38 +171,27 @@ const FormContainer = styled.div`
     gap: 2rem;
     box-shadow: 0 0.1875rem 0.4375rem 0 rgba(0, 0, 0, 0.13),
       0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.11);
-    // background-color: #00000076;
-    // border-radius: 2rem;
-    // padding: 3rem 5rem;
     padding: 5rem;
   }
   input {
     background-color: transparent;
     padding: 1rem;
-    // border: 0.1rem solid #4e0eff;
-    // border: 0.1rem solid rgb(92, 27, 134);
     border: 0.1rem solid #d3d3d3;
-    // border-radius: 0.4rem;
-    // color: white;
     width: 100%;
     font-size: 1rem;
     &:focus {
-      // border: 0.1rem solid #997af0;
       border: 0.1rem solid #1e90ff;
       outline: none;
     }
   }
   button {
-    // background-color: #4e0eff;
     background-color: #008080;
     color: white;
     padding: 1rem 2rem;
     border: none;
-    // font-weight: bold;
     font-weight: inherit;
     font-family: inherit;
     cursor: pointer;
-    // border-radius: 0.4rem;
     font-size: 1rem;
     text-transform: uppercase;
     &:hover {
@@ -248,7 +199,6 @@ const FormContainer = styled.div`
     }
   }
   span {
-    // color: white;
     text-transform: uppercase;
     a {
       // color: #4e0eff;

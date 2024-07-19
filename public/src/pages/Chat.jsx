@@ -69,14 +69,10 @@ const Container = styled.div`
   justify-content: center;
   gap: 1rem;
   align-items: center;
-  // background-color: #131324;
-  // background-color: #899bbd;
-  // background-color: #efeae2;
   background-color: rgb(240, 242, 245);
   .container {
     height: 85vh;
     width: 85vw;
-    // background-color: #00000076;
     box-shadow: 0 0.1875rem 0.4375rem 0 rgba(0, 0, 0, 0.13),
       0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.11);
     display: grid;
