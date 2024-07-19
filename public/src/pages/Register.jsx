@@ -63,10 +63,49 @@ export default function Register() {
     return true;
   };
 
+  // Version 1.0
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   if (handleValidation()) {
+  //     const { email, username, password } = values;
+  //     const { data } = await axios.post(registerRoute, {
+  //       username,
+  //       email,
+  //       password,
+  //     });
+
+  //     if (data.status === false) {
+  //       toast.error(data.msg, toastOptions);
+  //     }
+  //     if (data.status === true) {
+  //       localStorage.setItem(
+  //         process.env.REACT_APP_LOCALHOST_KEY,
+  //         JSON.stringify(data.user)
+  //       );
+  //       // navigate("/");
+  //       // Show success toast
+  //       toast.success("Register successfully!", toastOptions);
+
+  //       // Wait for the toast to appear before navigating
+  //       setTimeout(() => {
+  //         navigate("/");
+  //       }, 1000); // Adjust timeout as necessary
+  //     }
+  //   }
+  // };
+
+  // Version 2.0
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const { email, username, password, confirmPassword } = values;
+
+    // Check if all fields are filled
+    if (!email || !username || !password || !confirmPassword) {
+      toast.error("All fields are required to Register", toastOptions);
+      return;
+    }
+
     if (handleValidation()) {
-      const { email, username, password } = values;
       const { data } = await axios.post(registerRoute, {
         username,
         email,

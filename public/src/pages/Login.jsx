@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useNavigate, Link } from "react-router-dom";
-// import Logo from "../assets/logo.svg";
 import Logo from "../assets/icon.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,12 +11,10 @@ export default function Login() {
   const navigate = useNavigate();
   const [values, setValues] = useState({ username: "", password: "" });
   const toastOptions = {
-    // position: "bottom-right",
     position: "top-right",
     autoClose: 8000,
     pauseOnHover: true,
     draggable: true,
-    // theme: "dark",
     theme: "light",
   };
   useEffect(() => {
@@ -30,20 +27,6 @@ export default function Login() {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
 
-  // Version 1.0
-  // const validateForm = () => {
-  //   const { username, password } = values;
-  //   if (username === "") {
-  //     toast.error("Email and Password is required.", toastOptions);
-  //     return false;
-  //   } else if (password === "") {
-  //     toast.error("Email and Password is required.", toastOptions);
-  //     return false;
-  //   }
-  //   return true;
-  // };
-
-  // Version 2.0
   const validateForm = () => {
     const { username, password } = values;
 
@@ -60,30 +43,6 @@ export default function Login() {
     return true;
   };
 
-  // Version 1.0
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   if (validateForm()) {
-  //     const { username, password } = values;
-  //     const { data } = await axios.post(loginRoute, {
-  //       username,
-  //       password,
-  //     });
-  //     if (data.status === false) {
-  //       toast.error(data.msg, toastOptions);
-  //     }
-  //     if (data.status === true) {
-  //       localStorage.setItem(
-  //         process.env.REACT_APP_LOCALHOST_KEY,
-  //         JSON.stringify(data.user)
-  //       );
-
-  //       navigate("/");
-  //     }
-  //   }
-  // };
-
-  // Version 2.0
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (validateForm()) {
@@ -124,7 +83,6 @@ export default function Login() {
         <form action="" onSubmit={(event) => handleSubmit(event)}>
           <div className="brand">
             <img src={Logo} alt="logo" />
-            {/* <h1>snappy</h1> */}
             <h1>Chat Box</h1>
           </div>
           <input
