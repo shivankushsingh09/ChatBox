@@ -29,6 +29,9 @@ export default function Login() {
 
   const validateForm = () => {
     const { username, password } = values;
+    const usernameRegex = /^[a-zA-Z0-9]+$/; // Alphanumeric characters only
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; // At least one uppercase, one lowercase, one digit, one special character, and minimum 8 characters
 
     if (!username && !password) {
       toast.error("Username and Password are required.", toastOptions);
@@ -36,8 +39,26 @@ export default function Login() {
     } else if (!username) {
       toast.error("Username is required.", toastOptions);
       return false;
+    } else if (!usernameRegex.test(username)) {
+      toast.error(
+        "Username should contain only alphanumeric characters.",
+        toastOptions
+      );
+      return false;
+    } else if (username.length < 3) {
+      toast.error(
+        "Username should be greater than 3 characters.",
+        toastOptions
+      );
+      return false;
     } else if (!password) {
       toast.error("Password is required.", toastOptions);
+      return false;
+    } else if (!passwordRegex.test(password)) {
+      toast.error(
+        "Password must be 8+ characters, with uppercase, lowercase, digit, and special character.",
+        toastOptions
+      );
       return false;
     }
     return true;
@@ -83,7 +104,7 @@ export default function Login() {
         <form action="" onSubmit={(event) => handleSubmit(event)}>
           <div className="brand">
             <img src={Logo} alt="logo" />
-            <h1>Chat Box</h1>
+            <h1>ChatBox</h1>
           </div>
           <input
             type="text"

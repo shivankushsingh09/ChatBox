@@ -35,6 +35,11 @@ export default function Register() {
 
   const handleValidation = () => {
     const { password, confirmPassword, username, email } = values;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const usernameRegex = /^[a-zA-Z0-9]+$/; // Alphanumeric characters only
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; // At least one uppercase, one lowercase, one digit, one special character, and minimum 8 characters
+
     if (password !== confirmPassword) {
       toast.error(
         "Password and confirm password should be same.",
@@ -47,14 +52,23 @@ export default function Register() {
         toastOptions
       );
       return false;
-    } else if (password.length < 8) {
+    } else if (!usernameRegex.test(username)) {
       toast.error(
-        "Password should be equal or greater than 8 characters.",
+        "Username should contain only alphanumeric characters.",
+        toastOptions
+      );
+      return false;
+    } else if (!passwordRegex.test(password)) {
+      toast.error(
+        "Password must be 8+ characters, with uppercase, lowercase, digit, and special character.",
         toastOptions
       );
       return false;
     } else if (email === "") {
       toast.error("Email is required.", toastOptions);
+      return false;
+    } else if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid email address.", toastOptions);
       return false;
     }
     return true;
@@ -102,7 +116,7 @@ export default function Register() {
         <form action="" onSubmit={(event) => handleSubmit(event)}>
           <div className="brand">
             <img src={Logo} alt="logo" />
-            <h1>Chat Box</h1>
+            <h1>ChatBox</h1>
           </div>
           <input
             type="text"
