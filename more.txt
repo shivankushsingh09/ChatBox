@@ -1,0 +1,1 @@
+ChatBox is a real-time chat app. It offers seamless private messaging, message history, file sharing, and customizable avatars. Ideal for instant communication, collaboration, and community building, ChatBox enhances customer support with its reliable and user-friendly interface.
